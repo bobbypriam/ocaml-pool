@@ -1,0 +1,19 @@
+opam-version: "1.2"
+maintainer:   "bobby.priambodo@gmail.com"
+authors:      "Bobby Priambodo"
+homepage:     "https://github.com/bobbypriambodo/ocaml-pool/"
+dev-repo:     "https://github.com/bobbypriambodo/ocaml-pool.git"
+bug-reports:  "https://github.com/bobbypriambodo/ocaml-pool/issues"
+license:      "MIT"
+
+build: [
+  ["jbuilder" "subst" "-n" name] {pinned}
+  ["jbuilder" "build" "-p" name "-j" jobs]
+]
+build-test: [["jbuilder" "runtest" "-p" name "-j" jobs]]
+
+depends: [
+  "jbuilder" {build}
+  "alcotest" {test}
+]
+available: [ocaml-version >= "4.02.3"]
